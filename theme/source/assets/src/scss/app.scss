@@ -1,0 +1,29 @@
+/*!
+ * Theme Name: Apastron
+ * Author: Tomislav Svecak
+ * Template: apastron
+ * Version: 2.0
+ * License: GNU General Public License v2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ */
+
+@charset 'UTF-8';
+
+// Foundation CSS
+@import "../../vendor/foundation/scss/foundation.scss";
+
+
+// Variables
+@import "variables/defaults";
+@import "variables/colors";
+
+// Mixins
+@import "mixins/rem-fallback";
+@import "mixins/row-flex";
+
+// Components
+@import "components/home-slider";
+
+body {
+	color: #f40;
+}
