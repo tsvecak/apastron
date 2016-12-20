@@ -1,6 +1,6 @@
 .header {
     position: absolute;
-    top: 0;
-    left: 0;
+    @include rem-fallback(top, 0);
+    @include rem-fallback(left, 3);
     z-index: 3;
 }

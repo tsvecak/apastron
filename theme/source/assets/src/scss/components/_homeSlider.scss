@@ -11,8 +11,8 @@
 	}
 	&__buttons {
 		position: absolute;
-		bottom: 0;
-		left: 0;
+		@include rem-fallback(bottom, 3);
+		@include rem-fallback(left, 4);
 		z-index: 2;
 		button {
 			padding: 0;
