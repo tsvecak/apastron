@@ -21,6 +21,12 @@
 @import "mixins/rem-fallback";
 @import "mixins/row-flex";
 
+// Font Awesome CSS
+@import "components/fontAwesome";
+
 // Components
-@import "components/home-slider";
 @import "components/base";
+@import "components/header";
+@import "components/logo";
+@import "components/homeSlider";
+@import "components/crazyLines";

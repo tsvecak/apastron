@@ -1,3 +1,11 @@
 * {
 	outline: none;
 }
+body {
+	background: $jet;
+	@include rem-fallback(padding, 3);
+}
+
+#content {
+	overflow: hidden;
+}
