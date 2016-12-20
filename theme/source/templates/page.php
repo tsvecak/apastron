@@ -1,33 +1,27 @@
 <?php
-/*
- * Template Name: Product Pages Twig
- * Description: Template created for product pages.
-
+/**
+ * The template for displaying all pages.
  *
- * @package boi_base
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages
+ * and that other 'pages' on your WordPress site will use a
+ * different template.
+ *
+ * To generate specific templates for your pages you can use:
+ * /mytheme/views/page-mypage.twig
+ * (which will still route through this PHP file)
+ * OR
+ * /mytheme/page-mypage.php
+ * (in which case you'll want to duplicate this file and save to the above path)
+ *
+ * Methods for TimberHelper can be found in the /lib sub-directory
+ *
+ * @package  WordPress
+ * @subpackage  Timber
+ * @since    Timber 0.1
  */
-/*
- * Dependencies
- */
-use BOI\plugin\modules\posts\model\Page;
-/*
- * Config
- */
-Timber::$dirname = 'views/twigs';
-if (defined('TWIG_CACHE_TIME')) {
-    $cache = TWIG_CACHE_TIME;
-} else {
-    $cache = null;
-}
-/*
- * Get Context
- */
-$data = Timber::get_context();
-/*
- * Load the page
- */
-$data['page'] = new Page();
-/*
- * Render the template
- */
-Timber::render('templates/products.twig', $data, $cache);
+
+$context = Timber::get_context();
+$post = new TimberPost();
+$context['post'] = $post;
+Timber::render( array( 'page-' . $post->post_name . '.twig', 'page.twig' ), $context );

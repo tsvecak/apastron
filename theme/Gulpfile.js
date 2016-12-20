@@ -16,18 +16,17 @@ var gulp          = require('gulp')
 
 var config = {
   stylesPath            : './source/assets/src/scss'
-  ,scriptsPath          : './source/assets/src/js'
-  ,directivesSourcePath : './source/assets/src/js/directives'
-  ,appSourcePath        : './source/assets/src/js/app'
   ,imagesPath           : './source/assets/img'
+  ,scriptsPath          : './source/assets/src/js'
+  ,appSourcePath        : './source/assets/src/js/app'
+  ,directivesSourcePath : './source/assets/src/js/directives'
   ,templatePath         : './source/templates'
-  ,businesslogicPath    : './source/business-logic'
   ,modelsPath           : './source/models'
   ,viewsPath            : './source/views'
   ,controllersPath      : './source/controllers'
   ,vendorPath           : './source/assets/vendor'
   ,acfPath              : './source/acf'
-  ,buildPath            : '../web/app/themes/boi-ppg'
+  ,buildPath            : '../web/wp-content/themes/apastron'
 }
 
 /**
@@ -83,10 +82,6 @@ gulp.task('app', function() {
    */
   var app = gulp.src([
     config.scriptsPath  + "/app/ppMigrationGeneral.app.js"
-    ,config.scriptsPath  + "/app/ppMigrationPension.app.js"
-    ,config.scriptsPath  + "/app/ppMigrationMortgage.app.js"
-    ,config.scriptsPath  + "/app/ppMigrationServices.js"
-    ,config.scriptsPath  + "/app/ppMigrationFilters.js"
     ,config.scriptsPath  + "/directives/*"
   ])
     //.pipe($.uglify())
@@ -101,71 +96,17 @@ gulp.task('app', function() {
  */
 gulp.task('scripts', function() {
   return gulp.src([
-      config.vendorPath + '/slick-carousel/slick/slick.js'
-      ,config.scriptsPath  + '/snap.svg-min.js'
-      ,config.scriptsPath  + '/app.fx.js'
-      ,config.scriptsPath  + '/utilities/scroll-to-target.js'
-      ,config.scriptsPath  + '/utilities/show-hiden-target-and-scroll-to-it.js'
-      ,config.scriptsPath  + '/component-asidePositioning.js'
-      ,config.scriptsPath  + "/component-campaignCalcPanel.js"
-      ,config.scriptsPath  + "/component-collapseHelpSectionWidgetsOnMobile.js"
-      ,config.scriptsPath  + "/component-comparisonTable.js"
-      ,config.scriptsPath  + "/component-productPageCalc.js"
-      ,config.scriptsPath  + "/component-flipCards.js"
-      ,config.scriptsPath  + "/component-saveMoneyTypingText.js"
-      ,config.scriptsPath  + "/component-supportAccordion.js"
-      ,config.scriptsPath  + "/component-toolbar-dropdown.js"
-      ,config.scriptsPath  + "/component-wasThisHelpful.js"
-      ,config.scriptsPath  + "/component-widget-twitter.js"
-      ,config.scriptsPath  + "/component-scrollTo.js"
-      ,config.scriptsPath  + "/svg-test.js"
-      ,config.scriptsPath  + "/component-footnotesPopOver.js"
-      ,config.scriptsPath  + "/component-waysToBankVirtualPages.js"
-      ,config.scriptsPath  + "/component-tabsExpanded.js"
-      ,config.scriptsPath  + "/components/responsive-table.js"
-      ,config.scriptsPath  + "/component-addClassOnHoverIntent.js"
-      ,config.scriptsPath  + "/component-bol-service.js"
-      ,config.scriptsPath  + "/slickSliderConfiguration.js"
-      ,config.scriptsPath  + "/buttonForDisplayingResultsGF.js"
-      ,config.scriptsPath  + "/gravity-forms-button-spinner.js"
-
+      config.scriptsPath  + "/siema.js"
     ])
     .pipe($.sourcemaps.init())
     .pipe($.concat('scripts.js'))
-    .pipe($.uglify())
+    //.pipe($.uglify())
     .pipe(gulp.dest(config.buildPath + '/assets/js'))
     .pipe($.sourcemaps.write('./maps/'))
     .pipe(gulp.dest(config.buildPath))
     .pipe($.size({title: 'Scripts'}))
     .pipe(notify({message: "Your JavaScript is great again", onLast: true}));
 });
-
-/**
- * work in progress
- */
-gulp.task('templatePensionsHome', function() {
-    return gulp.src([
-            config.appSourcePath            + '/ppMigrationPension.app.js'
-            ,config.appSourcePath           + "/ppMigrationServices.js"
-            ,config.appSourcePath           + "/ppMigrationFilters.js"
-            ,config.directivesSourcePath    + "/segment-cards.directive.js"
-            ,config.directivesSourcePath    + "/segment-sentences.directive.js"
-            ,config.directivesSourcePath    + "/related-articles.directive.js"
-            ,config.directivesSourcePath    + "/slick-slides.directive.js"
-            ,config.directivesSourcePath    + "/calculator-pension.directive.js"
-            ,config.directivesSourcePath    + "/segment-articles.directive.js"
-
-        ])
-        .pipe($.sourcemaps.init())
-        .pipe($.concat('template-pensions-home.js'))
-        .pipe($.uglify())
-        .pipe(gulp.dest(config.buildPath + '/assets/js/app/'))
-        .pipe($.sourcemaps.write('./maps/'))
-        .pipe(gulp.dest(config.buildPath))
-        .pipe($.size({title: 'Template Pensions Home'}))
-        .pipe(notify({message: "Template Pensions Home JS Build Complete", onLast: true}));
-});
-
 
 /**
  * COMPILE STYLE

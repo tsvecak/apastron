@@ -1,7 +1,7 @@
 /*!
- * Theme Name: Product Pages Migration (PPG)
- * Author: BOI Online Team
- * Template: boi-basetheme
+ * Theme Name: Apastron
+ * Author: Tomislav Svecak
+ * Template: apastron
  * Version: 2.0
  * License: GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -9,253 +9,21 @@
 
 @charset 'UTF-8';
 
-/* Include the base-theme styles */
-$locations : (
-  images  : '../../../../boi-basetheme/assets/dist/img',
-  vectors : '../../../../boi-basetheme/assets/src/fonts/vectors',
-  fonts   : '../../../../boi-basetheme/assets/dist/fonts',
-  vendors : '../bower_components'
-);
-$locations-child-theme : (
-  images  : 'assets/img/',
-);
-$OpenSansPath: "../../src/scss/fonts";
-//@import "../../../../boi-basetheme/assets/src/scss/app";
-
-/*==================================================
-=            CSS for the product pages             =
-==================================================*/
+// Foundation CSS
+@import "../../vendor/foundation/scss/foundation.scss";
 
 
-
-@import "../../vendor/foundation-sites/scss/foundation.scss";
-
+// Variables
 @import "variables/defaults";
-
-
-// Variables and Tools
-@import "variables/colours";
-@import "variables/variables";
-// @import "../bower_components/fontawesome/css/font-awesome";
-
+@import "variables/colors";
 
 // Mixins
-@import "mixins/customMixins";
 @import "mixins/rem-fallback";
-@import "mixins/quantity-queries";
 @import "mixins/row-flex";
-@import "mixins/o-pill";
-@import "mixins/paper-box";
-@import "mixins/o-cards";
-@import "mixins/mask";
-@import "mixins/o-icons-menu";
-@import "mixins/o-select-dropdown";
-@import "mixins/o-svg-checkbox-and-radio";
-@import "mixins/alert-boxes";
-@import "mixins/linear-gradient";
-@import "mixins/input-fields";
 
-// Utilities
-@import "components/utilities/typography-utilities";
+// Components
+@import "components/home-slider";
 
-
-// fonts
-@import "components/fontello";
-@import "components/fontawesome";
-
-
-// Layouts
-@import "components/layouts/afterContent";
-@import "components/layouts/helpSection";
-@import "components/layouts/headerCondensed";
-@import "components/layouts/centered-content";
-
-
-
-// Forms
-@import "components/forms/gravity-forms-base-theme-styles";
-@import "components/forms/gravity-forms-base-theme-overwrites";
-@import "components/forms/form-resets";
-@import "components/forms/gf_page_steps";
-@import "components/forms/gf-currency-fields";
-@import "components/forms/gf-field-sizes";
-@import "components/forms/gf-form-footer";
-@import "components/forms/gf-buttons";
-@import "components/forms/gform_ajax_spinner";
-@import "components/forms/gf_gsection_title";
-@import "components/forms/gf_labels_position";
-@import "components/forms/gf-radio-and-checkbox";
-@import "components/forms/gf-errors";
-@import "components/forms/gfield_description";
-@import "components/forms/input-default";
-@import "components/forms/mortgages-calc-hero-slider";
-
-
-
-// Flex Grid, base off F6 mixins
-@import "components/_flex-grid";
-
-
-// Custom styles
-@import "components/accordion";
-@import "components/heroRegion";
-@import "components/alertMessage";
-@import "components/breadcrumbs";
-@import "components/toolbarRegion";
-@import "components/temporaryStyles";
-@import "components/productListStyle";
-@import "components/footnotes";
-@import "components/feature-promo";
-@import "components/asideMenu";
-@import "components/hentry";
-@import "components/buttons";
-@import "components/crossSellCard";
-@import "components/lists";
-@import "components/introOffers";
-@import "components/mainContent";
-@import "components/supportAccordion";
-@import "components/tip";
-@import "components/priorityFAQ";
-@import "components/supportDocument";
-@import "components/forms/searchFormCSE";
-@import "components/getInTouchWidget";
-@import "components/tables";
-@import "components/tooltip";
-@import "components/googleCSE";
-@import "components/wasThisHelpful";
-@import "components/forms/productCalc";
-@import "components/forms/mortgagesPPC";
-@import "components/boi-card-widget";
-@import "components/widgets/find-branch-widget";
-@import "components/widgets/twitter-widget";
-@import "components/widgets/contact-form-widget";
-@import "components/widgets/ways-to-apply-widget";
-@import "components/widgets/phone-numbers-widget";
-@import "components/widgets/popular-posts";
-@import "components/widgets/popular-faqs";
-@import "components/representativeExample";
-@import "components/regulatoryText";
-@import "components/warningText";
-@import "components/contentFlexBoxes";
-@import "components/type";
-@import "components/comparisonTable";
-@import "components/promoIcons";
-
-@import "components/ie8_grid_fix";
-
-
-
-@import "components/listings-container";
-@import "components/listing-card";
-
-// Flags
-@import "components/flags/flag-icon";
-
-// BOI Table Generator
-@import "components/boi-table-generator";
-
-// components
-//@import "foundation/responsive-tables";
-@import "components/foundation/date-picker";
-@import "components/product-card";
-
-// Ways to bank
-
-@import "components/ways-to-bank/c-wtb-icons-menu";
-@import "components/ways-to-bank/c-tab-bar";
-@import "components/ways-to-bank/c-reg-365-process";
-@import "components/ways-to-bank/c-wtb-secondary-hero";
-@import "components/ways-to-bank/c-sm-card";
-@import "components/ways-to-bank/c-video-card";
-@import "components/ways-to-bank/c-wtb-capabilities";
-@import "components/ways-to-bank/c-fees-table";
-@import "components/c-footnote-popover";
-@import "components/c-accordion-title-arrow";
-
-
-
-
-// BUSINESS BANKING
-@import "components/slickSlider";
-@import "components/hero-slider/hero-slider";
-@import "components/hero-slider/card-slide";
-@import "components/hero-slider/full-width-slide";
-@import "components/events-feed";
-
-
-@import "components/tab-control";
-@import "components/share-price-widget";
-@import "components/card-component-shortcode";
-@import "components/card-component-shortcode";
-@import "components/template-specific/business-banking-home-template";
-@import "components/forms/affordabilityCalc";
-@import "components/forms/formResultsTable";
-
-
-// PENSIONS, INSURANCE AND INVESTMENT
-@import "components/bil/segmentationBar";
-@import "components/blog/article";
-@import "components/paper-widget";
-@import "components/blog/author-card";
-@import "components/cta-strip";
-@import "components/scopes/article-content";
-@import "components/blog/article-strip";
-@import "components/bil/age-card";
-@import "components/forms/pension-calc";
-@import "components/forms/mortgage-protection-calc";
-@import "components/blog/article-card";
-@import "components/meta-box";
-@import "components/share-button";
-@import "components/blog/archive-filter";
-@import "components/blog/articles-sorter";
-@import "components/forms/mini-pension-calc";
-@import "components/widgets/life-online-widget";
-@import "components/widgets/faq-widget";
-@import "components/forms/gravity-forms-poll";
-@import "components/template-specific/bil-templates-common-styles";
-@import "components/widgets/setting-up-a-meeting-widget";
-@import "components/blog/article-placeholder";
-@import "components/angular/cloak";
-@import "components/forms/pensions-retire-calc-widget";
-@import "components/loading-spinner";
-
-
-// Insurance
-@import "components/forms/c-2cols-calc";  // Not being used yet
-@import "components/forms/c-calc-slider"; // Not being used yet
-
-
-// Mortages
-@import "mixins/o-tile";
-
-@import "components/mortgages/segment-tile";
-@import "components/mortgages/mor-toolkit";
-@import "components/template-specific/mortgages-templates-common-styles";
-@import "components/mortgages/select-stage";
-@import "components/widgets/application-centre";
-@import "components/widgets/events-widget";
-@import "components/forms/form-progress-dots";
-@import "components/callout-box";
-
-@import "components/forms/calculator-form";
-@import "components/forms/calculator-form-mini";
-@import "components/forms/calc-results-box";
-@import "components/forms/estimated-completion-time";
-@import "components/utilities/js-hide-results";
-@import "components/calculator-card";
-
-
-
-
-
-
-// General Components
-@import "components/comparison-table";
-@import "components/_bol-service";
-
-
-
-/*=====  End of CSS for the product pages   ======*/
-
-
-
+body {
+	color: #f40;
+}
