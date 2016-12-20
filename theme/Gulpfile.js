@@ -104,8 +104,7 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest(config.buildPath + '/assets/js'))
     .pipe($.sourcemaps.write('./maps/'))
     .pipe(gulp.dest(config.buildPath))
-    .pipe($.size({title: 'Scripts'}))
-    .pipe(notify({message: "Your JavaScript is great again", onLast: true}));
+    .pipe($.size({title: 'Scripts'}));
 });
 
 /**
@@ -136,8 +135,7 @@ gulp.task('styles', function() {
             return 'Error: ' + error.message;})))
       .pipe($.sourcemaps.write('./maps/'))
       .pipe(gulp.dest(config.buildPath))
-    .pipe($.size({title:'Styles'}))
-    .pipe(notify({message: "Your CSS is great again", onLast: true}));
+    .pipe($.size({title:'Styles'}));
 
 
   return merge(style);
@@ -227,16 +225,6 @@ gulp.task('images', function() {
   return merge(imgs, ss);
 });
 
-/**
- * COPY ACF FILES
- */
-gulp.task('acf', function() {
-  var acf = gulp.src(config.acfPath + '/**/*.*')
-    .pipe(gulp.dest(config.buildPath))
-    .pipe($.size({title: 'ACF'}));
-  return merge(acf);
-});
-
 
 /**
  * CSS LINT
@@ -272,7 +260,9 @@ gulp.task('watch', function() {
   gulp.watch(config.stylesPath   + '/**/*', ['styles']);
   gulp.watch(config.scriptsPath  + '/**/*', ['scripts']);
   gulp.watch(config.imagesPath   + '/**/*', ['images']);
-  gulp.watch(config.buildPath    + '/style.css', ['iebless']);
+  gulp.watch(config.buildPath    + '/style.css', ['iebless']).on('change', function () {
+        notify("Changes updated").write('');
+    });;
 
 });
 
@@ -290,19 +280,9 @@ gulp.task('build', function(cb) {
     ,'iebless'
     ,'theme'
     ,'images'
-    ,'acf'
     ,cb
   );
 });
-
-/**
- * COPY ALL ACF FROM COMPILED THEME TO SOURCE THEME BEFORE DELETING IT
- */
-gulp.task('copyBackAcfToSource', function() {
-  var acf = gulp.src(config.buildPath + '/acf-json/*.*')
-      .pipe(gulp.dest(config.acfPath + '/acf-json/'));
-});
-
 
 /**
  * CLEAR CACHE
