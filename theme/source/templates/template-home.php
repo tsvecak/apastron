@@ -17,4 +17,4 @@ if (defined('TWIG_CACHE_TIME')) {
 $data = Timber::get_context();
 
 /* Render the template */
-Timber::render('home.twig', $data);
+Timber::render('index.twig', $data);

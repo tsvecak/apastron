@@ -1,9 +1,15 @@
 * {
 	outline: none;
+	color: $white;
 }
 body {
 	background: $jet;
+	color: $white;
 	@include rem-fallback(padding, 3);
+}
+
+h1,h2,h3,h4,h5 {
+	color: $white;
 }
 
 #content {

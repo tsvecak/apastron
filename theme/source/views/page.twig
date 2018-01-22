@@ -1,14 +1,48 @@
-{% extends "base.twig" %}
-
+{% include 'components/header.twig' %}
 {% block content %}
-	<div class="content-wrapper">
-		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
-			<section class="article-content">
-				<h1 class="article-h1">{{post.title}}</h1>
-				<div class="article-body">
-					{{post.content}}
-				</div>
-			</section>
-		</article>
-	</div><!-- /content-wrapper -->
+{% raw %}
+	<style>
+		body {
+			background: #000;
+			text-align: center;
+			color: #fff;
+		}
+		.coming-soon {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			height: 100%;font-family: sans-serif;
+			background: url(/wp-content/themes/apastron/assets/img/screen.jpg);
+			background-size: cover;
+			background-position: center; 
+		}
+		.logo {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			opacity: .5;
+		}
+		.logo-name {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+		}
+		h1 {
+			margin:0 0 10px;
+			font-size:32px;
+			color:#fff;
+		}
+	</style>
+{% endraw %}
+	<div class="coming-soon">
+		<img class="logo" src="/wp-content/themes/apastron/assets/img/logo.png">
+
+		<img class="logo-name" src="/wp-content/themes/apastron/assets/img/logo-name.png">
+		<!-- <h1>Apastron<br>
+		Where Music Begins <br></h1>
+		<span>Coming soon</span> -->
+	</div>
 {% endblock %}

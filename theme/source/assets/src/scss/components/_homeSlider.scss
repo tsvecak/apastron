@@ -8,6 +8,14 @@
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: center;
+		position: relative;
+		&-content {
+			position: absolute;
+		    top: 50%;
+		    left: 1rem;
+		    color: #fff;
+		    z-index: 5;
+		}
 	}
 	&__buttons {
 		position: absolute;

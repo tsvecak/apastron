@@ -52,8 +52,14 @@
 			width: 55%;
 			text-align: center;
 		}
+		> *:hover {
+			cursor: pointer;
+		}
 	}
 	&__playing {
+		.rhythm {
+			display: none;
+		}
 		.image {
 			@include rem-fallback(padding, 0, 2);
 			height: 150px;
@@ -81,6 +87,9 @@
 			display: flex;
 		    justify-content: space-between;
 		    @include rem-fallback(padding, 0, 2);
+		    > *:hover {
+		    	cursor: pointer;
+		    }
 		}
 	}
 	&__footer {

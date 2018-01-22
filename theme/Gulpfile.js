@@ -53,16 +53,12 @@ gulp.task('vendor', function() {
    * COMPILE JS VENDOR FILES
    */
   var libs = gulp.src([
-    config.vendorPath  + '/typed.js/js/typed.js'
-    ,config.vendorPath + '/jquery-hoverintent/jquery.hoverIntent.js'
-    ,config.vendorPath + '/slick-carousel/slick/slick.js'
     ,config.vendorPath + '/angular/angular.js'
+    ,config.vendorPath + '/angular-route/angular-route.js'
     ,config.vendorPath + '/angular-animate/angular-animate.js'
     ,config.vendorPath + '/angular-cookies/angular-cookies.js'
     ,config.vendorPath + '/angular-messages/angular-messages.js'
     ,config.vendorPath + '/angular-cookies/angular-cookies.js'
-    ,config.vendorPath + '/foundation-datepicker/js/foundation-datepicker.js'
-    ,config.vendorPath + '/highcharts/highcharts.js'
   ])
     .pipe($.concat('vendor.js'))
     .pipe($.uglify())
@@ -81,7 +77,7 @@ gulp.task('app', function() {
    * COMPILE JS APP DIRECTIVE FILES
    */
   var app = gulp.src([
-    config.scriptsPath  + "/app/ppMigrationGeneral.app.js"
+    config.scriptsPath  + "/app/apastron.js"
     ,config.scriptsPath  + "/directives/*"
   ])
     //.pipe($.uglify())
@@ -220,7 +216,7 @@ gulp.task('images', function() {
     .pipe(gulp.dest(config.buildPath + '/assets/img'))
     .pipe($.size({title: 'Images'}));
 
-  var ss = gulp.src(config.imagesPath + '/screenshot.png')
+  var ss = gulp.src(config.imagesPath + '/favicon.png')
     .pipe(gulp.dest(config.buildPath));
   return merge(imgs, ss);
 });
