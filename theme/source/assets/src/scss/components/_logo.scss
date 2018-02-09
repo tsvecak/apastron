@@ -1,7 +1,20 @@
 .logo {
-    line-height: 1;
-    margin: 0;
-	a {
-		color: $white;
+	display: flex;
+	align-items: center;
+	padding: .8rem;
+	img {
+		width: 100px;
+	}
+	h1 {
+		padding: 0 0 0 1rem;
+		margin: 0;
+		line-height: 1;
+		a {
+			color: $white;
+			transition: all .2s ease;
+			&:hover {
+				opacity: .9;
+			}
+		}
 	}
 }

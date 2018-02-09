@@ -20,21 +20,35 @@ if(supportsHistoryApi){
     });
 }
 
-apastronApp.controller('apastronHeader', ['$scope', '$http', '$routeParams', '$sce', 
+apastronApp.controller('apastronCont', ['$scope', '$http', '$routeParams', '$sce', '$timeout', 
 
-	function($scope, $http, $routeParams, $sce) {
+	function($scope, $http, $routeParams, $sce, $timeout) {
 
 	    // JSON content location
-	    api.query = 'http://apastron.loc/wp-json/wp/v2/acf/options';
+	    api.query = 'http://apastron.loc/wp-json/';
 
 	    // add content to the scope
 
-		$http.get('/wp-json/wp/v2/acf/options')
+		$http.get('/wp-json/wp/v2/apastron')
 			.then(function (success){
 				$scope.test = success.data;
+				$scope.slides = $scope.test.home_slides;
+				$scope.onEnd = function(){
+					$timeout(function(){
+						$scope.mySiema = new Siema({
+							selector: '.home-slider'
+						});
+					}, 1);
+				};
 			},function (error){
 				$scope.test = 'nee';
 		});
 	}
 
 ]);
+
+apastronApp.filter('htmlToPlaintext', function() {
+	return function(text) {
+		return  text ? String(text).replace(/<[^>]+>/gm, '') : '';
+	};
+});

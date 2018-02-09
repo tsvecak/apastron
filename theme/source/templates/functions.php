@@ -24,3 +24,26 @@ if( function_exists('acf_add_options_page') ) {
 
 // Hide admin bar
 show_admin_bar(false);
+
+
+
+function buildRestApi( $data ) {
+    $homepage_id = get_option( 'page_on_front' );
+
+    $myObj = new StdClass();
+    $myObj->page_title = get_option('blogname');
+    $myObj->page_description = get_option('blogdescription');
+    $myObj->page_url = get_option('siteurl');
+    $myObj->page_logo = get_fields('option')['logo'];
+    $myObj->home_slides = get_field('slider', $homepage_id);
+    
+	return $myObj;
+}
+ 
+ 
+add_action( 'rest_api_init', function () {
+	register_rest_route( 'wp/v2', '/apastron', array(
+		'methods' => 'GET',
+		'callback' => 'buildRestApi',
+	) );
+} );

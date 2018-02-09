@@ -254,7 +254,7 @@ gulp.task('watch', function() {
   ], ['theme']);
 
   gulp.watch(config.stylesPath   + '/**/*', ['styles']);
-  gulp.watch(config.scriptsPath  + '/**/*', ['scripts']);
+  gulp.watch(config.scriptsPath  + '/**/*', ['scripts', 'app']);
   gulp.watch(config.imagesPath   + '/**/*', ['images']);
   gulp.watch(config.buildPath    + '/style.css', ['iebless']).on('change', function () {
         notify("Changes updated").write('');

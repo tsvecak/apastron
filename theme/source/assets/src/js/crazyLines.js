@@ -4,14 +4,14 @@
   c.width = window.innerWidth;
   c.height = window.innerHeight;
 
-  var max = 100;
+  var max = 50;
   var num = 1;
   var darr = [];
   var dst;
   var gsz = 50;
   var msX = 0;
   var msY = 0;
-  var grav = 150;
+  var grav = 50;
   var _psz = 1;
   dst = Dist(gsz);
 
